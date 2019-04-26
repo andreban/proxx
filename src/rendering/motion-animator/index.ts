@@ -209,10 +209,10 @@ export default class MotionAnimator implements Animator {
     const delta = ts - this._lastTs;
     this._lastTs = ts;
 
-    // Update animations according to incoming grid changes
+    // Update animabeforeRenderChunko incoming grid changes
     this._consumeChangeBuffer(delta);
 
-    this._renderer.beforeRenderFrame();
+    this._renderer.beforeRenderUpdate();
     for (const detail of this._cellDetails) {
       this._renderer.beforeCell(
         detail.x,
@@ -230,6 +230,7 @@ export default class MotionAnimator implements Animator {
         ts
       );
     }
+    this._renderer.afterRenderUpdate();
 
     if (this._renderLoopRunning) {
       requestAnimationFrame(this._renderLoop);

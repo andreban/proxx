@@ -22,7 +22,8 @@ export interface Renderer {
   createCanvas(): HTMLCanvasElement;
   onResize(): void;
   updateFirstRect(rect: ClientRect | DOMRect): void;
-  beforeRenderFrame(): void;
+  beforeRenderUpdate(): void;
+  afterRenderUpdate(): void;
   beforeCell(
     x: number,
     y: number,

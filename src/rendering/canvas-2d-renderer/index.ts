@@ -106,8 +106,12 @@ export default class Canvas2DRenderer implements Renderer {
     this._rerender();
   }
 
-  beforeRenderFrame() {
-    // Nothing to do here
+  beforeRenderUpdate() {
+    // this._ctx!.clearRect(0, 0, this._canvas!.width, this._canvas!.height);
+  }
+
+  afterRenderUpdate() {
+    this._drawFadeOut();
   }
 
   beforeCell(
